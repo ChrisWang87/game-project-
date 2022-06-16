@@ -8,7 +8,7 @@ public class Main
     public static void main(String[] args) {
         JFrame obj = new JFrame();
         Driver driver = new Driver();
-        obj.setBounds(10,10,700,600);
+        obj.setBounds(10,10,1000,500);
         obj.setTitle("Tower defense");
         obj.setVisible(true);
         obj.setResizable(false);
