@@ -3,7 +3,7 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.event.KeyListener;
-import java.util.Timer;
+import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -25,8 +25,8 @@ public class Driver extends JPanel implements KeyListener, ActionListener{
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-//       timer = new Timer(delay, this);
-//        timer.start();
+        timer = new Timer(delay, this);
+        timer.start();
     }
 
     public void paint(Graphics g){ 
@@ -46,7 +46,9 @@ public class Driver extends JPanel implements KeyListener, ActionListener{
 
         //ball
         g.setColor(Color.yellow);
-        g.fillRect(ballposX, ballposY, 20, 20);
+        g.fillOval(ballposX, ballposY, 20, 20);
+
+        g.dispose();
 
 
     }
@@ -55,7 +57,8 @@ public class Driver extends JPanel implements KeyListener, ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
-        
+        timer.start();
+        repaint();
     }
 
     @Override

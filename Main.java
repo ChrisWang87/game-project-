@@ -9,7 +9,7 @@ public class Main
         JFrame obj = new JFrame();
         Driver driver = new Driver();
         obj.setBounds(10,10,700,600);
-        obj.setTitle("Tower defance");
+        obj.setTitle("Tower defense");
         obj.setVisible(true);
         obj.setResizable(false);
         obj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
