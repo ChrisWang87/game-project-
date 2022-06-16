@@ -49,8 +49,6 @@ public class Driver extends JPanel implements KeyListener, ActionListener{
         g.fillOval(ballposX, ballposY, 20, 20);
 
         g.dispose();
-
-
     }
 
 
