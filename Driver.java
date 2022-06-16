@@ -1,6 +1,7 @@
 import javax.swing.JPanel;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Color;
 import java.awt.event.KeyListener;
 import javax.swing.Timer;
