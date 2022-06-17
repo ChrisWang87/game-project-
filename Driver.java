@@ -1,5 +1,4 @@
 import javax.swing.JPanel;
-
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Color;
@@ -9,8 +8,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.JComponent;
+import java.awt.event.MouseListener;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
-public class Driver extends JPanel implements KeyListener, ActionListener{
+public class Driver extends JPanel implements KeyListener, ActionListener, MouseListener{
     private boolean play = false;
 
     private Timer timer;
@@ -23,6 +29,8 @@ public class Driver extends JPanel implements KeyListener, ActionListener{
     private int ballXdir = -1;
     private int ballYdir = -2;
 
+    private BufferedImage screen;
+
     public Driver(){
         addKeyListener(this);
         setFocusable(true);
@@ -32,24 +40,16 @@ public class Driver extends JPanel implements KeyListener, ActionListener{
     }
 
     public void paint(Graphics g){ 
+
+        try {
+            screen = ImageIO.read(new File("G:/Chris/Coding/github/towerdefend game/game-project-/StartScreen.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         
            //background
-           g.setColor(Color.black);
-           g.fillRect(1,1,692,592);
+            g.drawImage(screen, 0, 0, this);
    
-           //borders
-           g.setColor(Color.yellow);
-           g.fillRect(0,0,3,592);
-           g.fillRect(0,0,692,3);
-           g.fillRect(691, 0, 3, 592);
-   
-           //the paddle
-           g.setColor(Color.green);
-           g.fillRect(playerX, 550, 100, 8);
-   
-           //ball
-           g.setColor(Color.yellow);
-           g.fillOval(ballposX, ballposY, 20, 20);
    
            g.dispose();
     }
@@ -104,6 +104,36 @@ public class Driver extends JPanel implements KeyListener, ActionListener{
     public void moveLeft(){
         play = true;
         playerX -= 20;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // TODO Auto-generated method stub
+        
     }
     
 }
