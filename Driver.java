@@ -1,139 +1,91 @@
 import javax.swing.JPanel;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Color;
-import java.awt.event.KeyListener;
-import javax.swing.Timer;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import javax.swing.JComponent;
-import java.awt.event.MouseListener;
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.awt.Dimension;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.awt.Graphics2D;
 
-public class Driver extends JPanel implements KeyListener, ActionListener, MouseListener{
-    private boolean play = false;
 
-    private Timer timer;
-    private int delay = 8;
+public class Driver extends JPanel implements Runnable{
 
-    private int playerX = 310;
+    final int originalTileSize = 20;
+    final int scale = 1;
 
-    private int ballposX = 120;
-    private int ballposY = 350;
-    private int ballXdir = -1;
-    private int ballYdir = -2;
+    final int tileSize = originalTileSize * scale; 
+    final int Screencol = 72;
+    final int Screenrwo = 45;
+    final int screenWidth = tileSize * Screencol;
+    final int screenHeight = tileSize * Screenrwo;
 
-    private BufferedImage screen;
+    Thread gameThread;
 
-    public Driver(){
-        addKeyListener(this);
-        setFocusable(true);
-        setFocusTraversalKeysEnabled(false);
-        timer = new Timer(delay, this);
-        timer.start();
+    private BufferedImage titlescreen;
+
+
+    //System
+    public UI ui = new UI(this);
+
+
+
+    //game state
+    public int gameState;
+    public final int titleScrenn = 0;
+    public final int MainScreen = 1;
+
+
+    public Driver()
+    {
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight));  
     }
+
 
     public void paint(Graphics g){ 
-
-        try {
-            screen = ImageIO.read(new File("G:/Chris/Coding/github/towerdefend game/game-project-/StartScreen.jpg"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D)g;
         
-           //background
-            g.drawImage(screen, 0, 0, this);
-   
-   
-           g.dispose();
+            //titleScrren
+            if(gameState == titleScrenn)
+            {
+              ui.draw(g2);
+            }
+            else
+            {
+
+            }
+    }
+    public void setupGame()
+    {
+        gameState = titleScrenn;
+
     }
 
+    public void startGameThread()
+    {
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        timer.start();
+    public void run()
+    {
+     while(gameThread != null)
+     {
+        update();
         repaint();
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
+     }   
         
     }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        // TODO Auto-generated method stub
-        if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-        {
-            if(playerX >= 600){
-                playerX = 600;
-            }
-            else{
-                moveRight();
-            }
-        }
-        if(e.getKeyCode() == KeyEvent.VK_LEFT)
-        {
-            if(playerX < 10){
-                playerX = 10;
-            }
-            else{
-                moveLeft();
-            }
-        }
+    public void update()
+    {
 
     }
-    public void moveRight(){
-        play = true;
-        playerX += 20;
-    }
-    public void moveLeft(){
-        play = true;
-        playerX -= 20;
-    }
+    public void paintEnemy(Graphics g)
+    {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D)g;
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        // TODO Auto-generated method stub
-        
     }
     
 }
