@@ -57,7 +57,6 @@ public class Driver extends JPanel implements Runnable{
     public void setupGame()
     {
         gameState = titleScrenn;
-
     }
 
     public void startGameThread()
@@ -88,7 +87,7 @@ public class Driver extends JPanel implements Runnable{
     }
     public void moveup()
     {
-        
+
     }
     
 }
