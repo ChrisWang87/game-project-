@@ -4,6 +4,7 @@ import javax.swing.event.MouseInputListener;
 
 public class MouseHandler implements MouseInputListener
 {
+    public boolean leftpressed, rightpressed;
 
     @Override
     public void mouseClicked(MouseEvent e) {

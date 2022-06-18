@@ -1,10 +1,9 @@
 import javax.swing.JPanel;
+
+import Object.enemy;
+
 import java.awt.Graphics;
-import java.io.File;
-import java.io.IOException;
 import java.awt.Dimension;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 import java.awt.Graphics2D;
 
 
@@ -25,6 +24,10 @@ public class Driver extends JPanel implements Runnable{
 
     //System
     public UI ui = new UI(this);
+
+
+    enemy Enemy = new enemy();
+
 
 
 
@@ -85,10 +88,7 @@ public class Driver extends JPanel implements Runnable{
         Graphics2D g2 = (Graphics2D)g;
 
     }
-    public void moveup()
-    {
 
-    }
     
 }
 
