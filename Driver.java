@@ -21,7 +21,6 @@ public class Driver extends JPanel implements Runnable{
 
     Thread gameThread;
 
-    private BufferedImage titlescreen;
 
 
     //System
@@ -86,6 +85,10 @@ public class Driver extends JPanel implements Runnable{
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
 
+    }
+    public void moveup()
+    {
+        
     }
     
 }

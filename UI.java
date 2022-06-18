@@ -16,11 +16,8 @@ public class UI
     Graphics2D g2;
     public int commandNum = 0;
 
-    try {
-        logo = ImageIO.read(new File("G:/Chris/Coding/visual studio/battle ship example/Logo.png"));
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+    private BufferedImage titlescreen;
+
 
     public UI(Driver gp)
     {
@@ -46,13 +43,19 @@ public class UI
     }
     public void drawTitleScrren()
     {
+        try {
+            titlescreen = ImageIO.read(new File("G:/Chris/Coding/github/towerdefend game/game-project-/image_and_object/StartScreen.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        g2.drawImage(titlescreen, 0, 0, null);
+
         //title
         g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
         String text = "adventrue";
         g2.setColor(Color.black);
         g2.drawString(text,500,200);
-
-
     }
 
 
