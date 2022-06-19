@@ -1,27 +1,42 @@
 import java.awt.event.MouseEvent;
-
 import javax.swing.event.MouseInputListener;
 
 public class MouseHandler implements MouseInputListener
 {
-    public boolean leftpressed, rightpressed;
+    public boolean leftclick, rightclick;
 
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
-        
     }
-
     @Override
     public void mousePressed(MouseEvent e) {
         // TODO Auto-generated method stub
-        
+        int click = e.getButton();
+
+        if(click == MouseEvent.BUTTON1)
+        {
+            leftclick = true;
+        }
+        if(click == MouseEvent.BUTTON3)
+        {
+            rightclick = true;
+        }
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
         // TODO Auto-generated method stub
-        
+        int click = e.getButton();
+
+        if(click == MouseEvent.BUTTON1)
+        {
+            leftclick = false;
+        }
+        if(click == MouseEvent.BUTTON3)
+        {
+            rightclick = false;
+        }
     }
 
     @Override
@@ -49,3 +64,4 @@ public class MouseHandler implements MouseInputListener
     }
     
 }
+

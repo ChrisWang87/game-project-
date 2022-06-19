@@ -1,6 +1,6 @@
 import javax.swing.JPanel;
 
-import Object.enemy;
+import Object.enemy1;
 
 import java.awt.Graphics;
 import java.awt.Dimension;
@@ -18,6 +18,8 @@ public class Driver extends JPanel implements Runnable{
     final int screenWidth = tileSize * Screencol;
     final int screenHeight = tileSize * Screenrwo;
 
+
+    MouseHandler mouseH = new MouseHandler();
     Thread gameThread;
 
 
@@ -26,7 +28,7 @@ public class Driver extends JPanel implements Runnable{
     public UI ui = new UI(this);
 
 
-    enemy Enemy = new enemy();
+    enemy1 Enemy = new enemy1();
 
 
 
@@ -36,10 +38,14 @@ public class Driver extends JPanel implements Runnable{
     public final int titleScrenn = 0;
     public final int MainScreen = 1;
 
+    int enemy1Speed =  1;
+
 
     public Driver()
     {
-        this.setPreferredSize(new Dimension(screenWidth, screenHeight));  
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight)); 
+        this.addMouseListener(mouseH);
+        this.setFocusable(true); 
     }
 
 
@@ -82,7 +88,7 @@ public class Driver extends JPanel implements Runnable{
     {
 
     }
-    public void paintEnemy(Graphics g)
+    public void paintEnemy1(Graphics g)
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;

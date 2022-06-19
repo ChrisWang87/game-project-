@@ -12,6 +12,7 @@ import java.io.IOException;
 public class UI 
 {
     Driver gp;
+    MouseHandler g;
     Font arial_40;
     Graphics2D g2;
     public int commandNum = 0;
@@ -39,6 +40,7 @@ public class UI
         {
             drawTitleScrren();
         }
+        
         
     }
     public void drawTitleScrren()
