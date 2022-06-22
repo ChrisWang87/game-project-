@@ -19,6 +19,9 @@ public class UI
 
     private BufferedImage titlescreen;
 
+    int x = g.x;
+    int y = g.y;
+
 
     public UI(Driver gp)
     {
@@ -40,6 +43,10 @@ public class UI
         {
             drawTitleScrren();
         }
+        if(gp.gameState == gp.MainScreen)
+        {
+            drawMainScreen();
+        }
         
         
     }
@@ -55,9 +62,15 @@ public class UI
 
         //title
         g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
-        String text = "adventrue";
+        String text = "";
         g2.setColor(Color.black);
         g2.drawString(text,500,200);
+    }
+    public void drawMainScreen()
+    {
+        String text = "Game start";
+        g2.setColor(Color.black);
+        g2.drawString(text,500,200); 
     }
 
 

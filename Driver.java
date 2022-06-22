@@ -9,24 +9,24 @@ import java.awt.Graphics2D;
 
 public class Driver extends JPanel implements Runnable{
 
-    final int originalTileSize = 20;
+    final int squareSize = 20;
     final int scale = 1;
 
-    final int tileSize = originalTileSize * scale; 
+    final int tileSize = squareSize * scale; 
     final int Screencol = 72;
     final int Screenrwo = 45;
     final int screenWidth = tileSize * Screencol;
     final int screenHeight = tileSize * Screenrwo;
 
 
-    MouseHandler mouseH = new MouseHandler();
     Thread gameThread;
+    MouseHandler g;
 
 
 
     //System
     public UI ui = new UI(this);
-
+    public MouseHandler mouseH = new MouseHandler();
 
     enemy1 Enemy = new enemy1();
 
@@ -55,17 +55,18 @@ public class Driver extends JPanel implements Runnable{
         
             //titleScrren
             if(gameState == titleScrenn)
-            {
+            { 
               ui.draw(g2);
-            }
-            else
-            {
-
             }
     }
     public void setupGame()
     {
-        gameState = titleScrenn;
+        gameState = MainScreen;
+        if(gameState == MainScreen)
+        {
+            if(g.x > 500 && g.y > 200)
+            gameState = titleScrenn;
+        }
     }
 
     public void startGameThread()
@@ -86,6 +87,7 @@ public class Driver extends JPanel implements Runnable{
     }
     public void update()
     {
+        
 
     }
     public void paintEnemy1(Graphics g)
