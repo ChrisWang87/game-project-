@@ -10,8 +10,8 @@ public class MouseHandler implements MouseInputListener
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
-        int x = e.getY();
-        int y = e.getX();
+        x = e.getY();
+        y = e.getX();
 
         System.out.println(x + ", " + y);
     }
@@ -51,4 +51,3 @@ public class MouseHandler implements MouseInputListener
     }
     
 }
-

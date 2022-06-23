@@ -1,7 +1,5 @@
 import javax.swing.JPanel;
-
 import Object.enemy1;
-
 import java.awt.Graphics;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
@@ -20,13 +18,11 @@ public class Driver extends JPanel implements Runnable{
 
 
     Thread gameThread;
-    MouseHandler g;
-
 
 
     //System
     public UI ui = new UI(this);
-    public MouseHandler mouseH = new MouseHandler();
+    MouseHandler mouseH = new MouseHandler();
 
     enemy1 Enemy = new enemy1();
 
@@ -64,9 +60,10 @@ public class Driver extends JPanel implements Runnable{
         gameState = MainScreen;
         if(gameState == MainScreen)
         {
-            if(g.x > 500 && g.y > 200)
-            gameState = titleScrenn;
+            if(mouseH.x > 500 && mouseH.y > 200)
+            gameState = 0;
         }
+
     }
 
     public void startGameThread()
@@ -87,16 +84,13 @@ public class Driver extends JPanel implements Runnable{
     }
     public void update()
     {
-        
-
+        System.out.println(mouseH.x + ", " + mouseH.y);
     }
     public void paintEnemy1(Graphics g)
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
 
-    }
-
-    
+    }   
 }
 

@@ -12,15 +12,12 @@ import java.io.IOException;
 public class UI 
 {
     Driver gp;
-    MouseHandler g;
     Font arial_40;
     Graphics2D g2;
     public int commandNum = 0;
 
     private BufferedImage titlescreen;
 
-    int x = g.x;
-    int y = g.y;
 
 
     public UI(Driver gp)
@@ -61,13 +58,11 @@ public class UI
         g2.drawImage(titlescreen, 0, 0, null);
 
         //title
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
-        String text = "";
-        g2.setColor(Color.black);
-        g2.drawString(text,500,200);
+         
     }
     public void drawMainScreen()
     {
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
         String text = "Game start";
         g2.setColor(Color.black);
         g2.drawString(text,500,200); 
