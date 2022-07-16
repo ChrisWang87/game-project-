@@ -3,7 +3,7 @@
  */
 import javax.swing.JFrame;
 
-public class Main 
+public class Main extends JFrame 
 {
     public static void main(String[] args) {
         JFrame obj = new JFrame();
@@ -14,5 +14,6 @@ public class Main
         obj.setVisible(true);
         obj.setResizable(false);
         obj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        obj.setLocationRelativeTo(null);
     }
 }

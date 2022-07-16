@@ -25,12 +25,6 @@ public class UI
         this.gp = gp;
         arial_40 = new Font("Arial", Font.PLAIN, 40);
     }
-    public void draw(Graphics g)
-    {
-        g.setFont(arial_40);
-        g.setColor(Color.black);
-        g.drawString("Start",700,750);
-    }
 
     public void draw(Graphics2D g2)
     {
@@ -44,21 +38,21 @@ public class UI
         {
             drawMainScreen();
         }
-        
-        
+          
     }
     public void drawTitleScrren()
     {
         try {
-            titlescreen = ImageIO.read(new File("G:/Chris/Coding/github/towerdefend game/game-project-/image_and_object/StartScreen.jpg"));
+            titlescreen = ImageIO.read(new File("G:/Desktop/Chris/Coding/github/towerdefend game/game-project-/image_and_object/StartScreen.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         g2.drawImage(titlescreen, 0, 0, null);
-
-        //title
-         
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
+        String text = "Game start";
+        g2.setColor(Color.black);
+        g2.drawString(text,470,100);
+        //title 
     }
     public void drawMainScreen()
     {

@@ -1,15 +1,17 @@
 import javax.swing.JPanel;
 import Object.enemy1;
+import input.Keyboardinput;
+import input.Mouseimput;
+
 import java.awt.Graphics;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 
-public class Driver extends JPanel implements Runnable{
+public class Driver extends JPanel{
 
     final int squareSize = 20;
     final int scale = 1;
-
     final int tileSize = squareSize * scale; 
     final int Screencol = 72;
     final int Screenrwo = 45;
@@ -19,13 +21,14 @@ public class Driver extends JPanel implements Runnable{
 
     Thread gameThread;
 
+    private Mouseimput Mouseinput;
+    private Keyboardinput Keyboardinput;
+
 
     //System
     public UI ui = new UI(this);
-    MouseHandler mouseH = new MouseHandler();
-
+    public MouseHandler mouseH = new MouseHandler();
     enemy1 Enemy = new enemy1();
-
 
 
 
@@ -44,11 +47,17 @@ public class Driver extends JPanel implements Runnable{
         this.setFocusable(true); 
     }
 
+    private void input()
+    {
+        Mouseinput = new Mouseimput();
+        Keyboardinput = new Keyboardinput();
+        
+    }
+
 
     public void paint(Graphics g){ 
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-        
             //titleScrren
             if(gameState == titleScrenn)
             { 
@@ -57,34 +66,11 @@ public class Driver extends JPanel implements Runnable{
     }
     public void setupGame()
     {
-        gameState = MainScreen;
-        if(gameState == MainScreen)
-        {
-            if(mouseH.x > 500 && mouseH.y > 200)
-            gameState = 0;
-        }
-
-    }
-
-    public void startGameThread()
-    {
-        gameThread = new Thread(this);
-        gameThread.start();
-    }
-
-    @Override
-    public void run()
-    {
-     while(gameThread != null)
-     {
-        update();
-        repaint();
-     }   
-        
+        gameState = titleScrenn;
     }
     public void update()
     {
-        System.out.println(mouseH.x + ", " + mouseH.y);
+
     }
     public void paintEnemy1(Graphics g)
     {
